@@ -22,7 +22,8 @@ func main() {
 		fmt.Println("world")
 		wg.Done()
 	}() //as I have both f() with go. none of them will show
-	wg.Wait()
 	fmt.Println("END")
+	wg.Wait()
+	fmt.Println("Exit")
 	//select {} //this will cause an indefinitly run ending with deadlock
 }
