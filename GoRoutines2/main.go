@@ -10,6 +10,7 @@ func main() {
 	//wait groups
 	wg := &sync.WaitGroup{}
 	//add done and wait functionality
+
 	wg.Add(2)
 
 	//here we have an anonymous function. it does no contain any name
