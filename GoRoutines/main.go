@@ -10,7 +10,8 @@ func heavy() {
 }
 
 func main() {
-	heavy()
+	//go es a word to make work the concurrency
+	go heavy()
 	fmt.Println("END")
 
 }
