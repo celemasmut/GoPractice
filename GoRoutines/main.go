@@ -22,7 +22,7 @@ func superHeavy() {
 func main() {
 	//go es a word to make work the concurrency
 	go heavy()
-	superHeavy() // as this has not ending the next line will never be shown
+	superHeavy()
 	fmt.Println("END")
 	//time.Sleep(time.Second * 5) //as I have this time the f.heavy() works
 	select {} // with this the f.heavy will run not stopping
