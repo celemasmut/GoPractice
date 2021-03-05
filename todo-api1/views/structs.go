@@ -1,4 +1,4 @@
-package structs
+package views
 
 //Response is an struct
 type Response struct {
