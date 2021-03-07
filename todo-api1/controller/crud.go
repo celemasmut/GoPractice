@@ -23,6 +23,14 @@ func create() http.HandlerFunc {
 			}
 			w.WriteHeader(http.StatusCreated)
 			json.NewEncoder(w).Encode(data)
+		} else if r.Method == http.MethodGet {
+			name := r.URL.Query().Get("name")
+			data, err := model.ReadByName(name)
+			if err != nil {
+				w.Write([]byte(err.Error()))
+			}
+			w.WriteHeader(http.StatusOK)
+			json.NewEncoder(w).Encode(data)
 		}
 	}
 }
