@@ -32,7 +32,7 @@ func crud() http.HandlerFunc {
 			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(data)
 		} else if r.Method == http.MethodDelete {
-			var name string
+			name := r.URL.Path[1:]
 			if err := model.DeleteTODO(name); err != nil {
 				w.Write([]byte("Some error"))
 				return
