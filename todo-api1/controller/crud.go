@@ -9,7 +9,7 @@ import (
 	"github.com/celemasmut/GoPractice/GoPractice/todo-api1/views"
 )
 
-func create() http.HandlerFunc {
+func crud() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			//take some data
@@ -31,6 +31,16 @@ func create() http.HandlerFunc {
 			}
 			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(data)
+		} else if r.Method == http.MethodDelete {
+			var name string
+			if err := model.DeleteTODO(name); err != nil {
+				w.Write([]byte("Some error"))
+				return
+			}
+			w.WriteHeader(http.StatusOK)
+			json.NewEncoder(w).Encode(struct {
+				Status string `json:"status"`
+			}{"Item delated"})
 		}
 	}
 }

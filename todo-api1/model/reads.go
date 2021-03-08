@@ -17,6 +17,7 @@ func ReadAll() ([]views.PostRequest, error) {
 	return todos, nil
 }
 
+//ReadByName is the function that read only the post of an specific name
 func ReadByName(name string) ([]views.PostRequest, error) {
 	rows, err := con.Query("SELECT * FROM TODO WHERE name=?", name)
 	if err != nil {

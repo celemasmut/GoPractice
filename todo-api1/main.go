@@ -11,11 +11,11 @@ import (
 )
 
 func main() {
-	mux := controller.Register()
-	db := model.Connect()
-	defer db.Close() //this to invoke this line at the end
+	mux := controller.Register() // create a new mux
+	db := model.Connect()        // connectint to the database
+	defer db.Close()             //this to invoke this line at the end
 	fmt.Println("Serving...")
-	log.Fatal(http.ListenAndServe(":3000", mux))
+	log.Fatal(http.ListenAndServe(":3000", mux)) // listen and serv on port 3000
 }
 
 //once we run the main. then we open de localhost on the navegator.
